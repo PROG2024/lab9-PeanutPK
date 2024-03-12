@@ -28,9 +28,13 @@ class Circle:
         should form a Pythagorean triple (r1^2 + r2^2 = r3^2)
         >>> c1 = Circle(3)
         >>> c2 = Circle(4)
-        >>> c3 = c1.add_area(c2)
+        >>> c3 = c1.add_area(c2)    # normal case radius is two and three
         >>> c3.radius
         5.0
+        >>> c4 = Circle(0)
+        >>> c5 = c1.add_area(c4)    # edge case one of the radius is zero
+        >>> c5.radius
+        3.0
         """
         r1 = self.get_radius()
         r2 = circle.get_radius()
