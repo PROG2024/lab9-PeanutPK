@@ -20,12 +20,12 @@ class Test(unittest.TestCase):
         """Test normal area adding for Circle object with radius 2 and 4"""
         # math.hypot(x, y) returns sqrt(x*x + y*y)
         rad = math.hypot(2, 4)
-        self.assertTrue(rad == Circle(2).add_area(Circle(4)).radius)
+        self.assertEqual(rad, Circle(2).add_area(Circle(4)).radius)
 
     def test_add_area_zero(self):
         """Try edge case with one of them has zero as radius"""
         rad = math.hypot(0, 4)
-        self.assertTrue(rad == Circle(0).add_area(Circle(4)).radius)
+        self.assertEqual(rad, Circle(0).add_area(Circle(4)).radius)
 
     def test_negative_radius(self):
         """Invalid negative value input for Circle object"""
