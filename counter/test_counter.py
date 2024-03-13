@@ -26,3 +26,15 @@ class SingleTonTest(unittest.TestCase):
 
     def test_same_object(self):
         self.assertEqual(self.c1, self.c2)
+
+    def test_not_invoke(self):
+        # a little test before create new instance that will be same
+        self.assertEqual(self.c1.count, 0)
+        self.c1.increment()
+        # check that it is equal to 1
+        self.assertEqual(self.c1.count, 1)
+        self.assertEqual(self.c1.count, self.c2.count)
+        # create new object that is the same as the previous one
+        c3 = Counter()
+        self.assertEqual(id(self.c1), id(c3))
+        self.assertEqual(1, c3.count)

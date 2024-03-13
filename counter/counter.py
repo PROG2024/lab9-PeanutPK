@@ -18,17 +18,15 @@ class Counter:
     """Counter class that counts and add when increment is called"""
     __instance = None
 
-    def __init__(self):
-        self.__count = 0
-
     def __str__(self):
         return f"{self.__count}"
 
     def __new__(cls, *args, **kwargs):
         """Create the same instance when """
         if cls.__instance is None:
-            logging.info("Create new Counter")
+            logging.info("Create new Counter")  # for checking when create new
             cls.__instance = super().__new__(cls)
+            cls.__instance.__count = 0
         return cls.__instance
 
     @property
